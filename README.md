@@ -2,9 +2,20 @@
   <img src="assets/banner.svg" alt="Deepak Singh: Quantitative Modeling & Research" width="100%">
 </p>
 
-I work on quantitative models for markets: portfolio construction, statistical arbitrage, market microstructure and regime detection.
+I'm currently exploring **neural PDE methods for stochastic control** and **computational methods for inference**.
 
 <!-- TODO: one line on your current role or program, e.g. "MS student at … / Quant researcher at …" -->
+
+## 🧭 Research Interests
+
+- **Sequential decision-making and online learning:** stochastic control, reinforcement learning and adaptive
+  control, with a focus on exploration and learning dynamics in these settings.
+- **Statistical modeling and inference:** how the estimation target and assumptions about the data-generating
+  process guide the choice of models and estimators. I'm interested in robustness to model misspecification
+  and finite-sample performance, especially for nonparametric and high-dimensional methods: kernel methods,
+  low-rank estimation and random matrix theory.
+- **Applications in quantitative finance:** alpha discovery, dynamic portfolio construction, derivatives pricing,
+  and optimal quoting in market making.
 
 ---
 
@@ -42,14 +53,6 @@ comparison in place of an interest rate.
   and 1.3 leads to a realised average between 1.059 and 1.070.
 
 `Python` · `PyTorch` · `NumPy/SciPy` · finite differences · PINNs · AMS 516, Stony Brook (team of two)
-
-## 🧭 Research Interests
-
-- **Mean-field games & stochastic control:** HJB / Fokker–Planck solvers, physics-informed neural networks
-- **Portfolio optimization:** mean-variance, Black-Litterman, hierarchical risk parity
-- **Statistical arbitrage:** mean-reverting portfolios, pairs trading, meta-labeling
-- **Market microstructure:** limit order books, order-flow clustering
-- **Regime & changepoint detection:** Bayesian online changepoint methods
 
 ## 🛠️ Toolkit
 
