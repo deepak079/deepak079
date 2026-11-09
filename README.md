@@ -2,8 +2,6 @@
   <img src="assets/banner.svg" alt="Deepak Singh: Quantitative Modeling & Research" width="100%">
 </p>
 
-I'm currently exploring **neural PDE methods for stochastic control** and **computational methods for inference**.
-
 <!-- TODO: one line on your current role or program, e.g. "MS student at … / Quant researcher at …" -->
 
 ## 🧭 Research Interests
@@ -17,9 +15,11 @@ I'm currently exploring **neural PDE methods for stochastic control** and **comp
 - **Applications in quantitative finance:** alpha discovery, dynamic portfolio construction, derivatives pricing,
   and optimal quoting in market making.
 
+I'm currently exploring **neural PDE methods for stochastic control** and **computational methods for inference**.
+
 ---
 
-## 🔬 Recent Projects
+## 🔬 Recent Work
 
 ### Fear of falling behind: a mean-field game of portfolio choice
 
