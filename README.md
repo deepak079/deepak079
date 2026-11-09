@@ -3,9 +3,9 @@
 </p>
 
 I'm a graduate student in Applied Mathematics and Statistics at Stony Brook University, concentrating in
-quantitative finance. Most of my work starts with two questions: what exactly is being optimized or
-estimated, and what assumptions does the answer rest on? From there I build models that can be
-implemented, tested and used to make financial decisions.
+quantitative finance. I like to formulate problems mathematically, starting from two questions: what
+exactly is being optimized or estimated, and what assumptions does the answer rest on? These questions
+shape which model I choose, how I implement it, and how I test whether it holds up for financial decisions.
 
 My background in software engineering helps me put these ideas into practice, from implementing models
 and numerical solvers to building research pipelines and trading systems. I've applied this combination
