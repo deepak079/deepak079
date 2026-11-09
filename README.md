@@ -56,34 +56,41 @@ comparison in place of an interest rate.
 
 ---
 
-### Safe leverage for crypto perpetual futures
+### Forecasting tail quantiles: how much leverage is safe on crypto perpetual futures?
 
-<img src="assets/rate_vs_leverage.png" width="760" alt="Liquidation rate vs average leverage for six forecasting methods, long and short, at 1% and 5% targets">
+<img src="assets/quantile_vs_leverage.png" width="760" alt="Liquidation rate vs average leverage at a 1% target for six forecasting methods, long and short positions">
 
-*How much leverage can you take on a crypto perpetual future and still keep the chance of liquidation at 1%?*
+*When the quantity you need is a 1% tail quantile, should you model it directly, or model the whole
+return distribution and read the quantile off?*
 
-Under isolated margin, a position at leverage `L` is liquidated when its worst adverse move in the
-holding window reaches `1/L − mmr` (mmr: maintenance margin rate). So safe leverage follows from a
-forecast of the α-quantile of that move: `L = 1/(mmr + |q̂_α|)`. We compared ways of forecasting it on
-7 Binance perpetuals (about 36,000 8-hour windows, 2022–2026), out of sample over 51 monthly refits.
+On a crypto perpetual future with isolated margin, a position at leverage `L` is liquidated when its
+worst adverse move over the holding window reaches `1/L − mmr` (mmr: maintenance margin rate). Keeping
+the chance of liquidation at α means forecasting the α-quantile of that move and setting
+`L = 1/(mmr + |q̂_α|)`. Leverage is a direct readout of the forecast: overstate the tail and you give
+up leverage; understate it and positions are liquidated more often than promised.
 
 **What we did**
-- Built a data pipeline from Binance's public archive and a walk-forward harness, and evaluated
-  liquidation rates with Kupiec and Christoffersen tests.
-- Compared six forecasting rules: historical quantile, OLS with normal errors, GARCH(1,1)-t,
-  quantile regression, kernel-weighted quantile and CVaR regression.
+- Compared six estimators of the conditional tail quantile: distributional models (OLS with normal
+  errors, GARCH(1,1)-t), direct quantile models (historical quantile, linear and kernel-weighted
+  quantile regression) and a conservative CVaR regression.
 - Fitted quantile regression pooled across coins with coin fixed effects on four market-state
   factors (funding, open-interest change, realized volatility, basis), using PSG.
+- Evaluated out of sample on 7 Binance perpetuals (about 36,000 8-hour windows, 2022–2026) with 51
+  monthly walk-forward refits, testing liquidation rates for correct coverage (Kupiec) and
+  independence (Christoffersen).
 
 **What it shows**
-- Pooled quantile regression met the 1% target for longs (1.00% liquidated, all 7 coins within
-  Kupiec bounds) at **14% more leverage** than the standard historical-quantile rule.
-- A normal tail is too thin: OLS liquidates 2.6–3.3% at a 1% target. GARCH-t buys its leverage
-  with extra liquidations.
-- A nonparametric kernel model did not beat linear quantile regression.
-- CVaR regression is deliberately conservative: well below target, at a quarter to a third less leverage.
-- Limitations: at 1% short every method liquidates too often; liquidations cluster in time; fees and
-  funding are excluded.
+- **Modelling the quantile directly wins.** Pooled quantile regression liquidated 1.00% of long
+  positions at a 1% target, with all 7 coins within Kupiec bounds, at **13% more leverage** than the
+  historical-quantile rule (14.5× vs 12.8×).
+- **Distributional models pay for misspecified tails.** Normal tails are too thin: OLS liquidates
+  2.6–3.3% at a 1% target. GARCH-t's extra leverage for longs comes with extra liquidations (1.38%).
+- **More flexibility did not help.** The nonparametric kernel model did not beat linear quantile
+  regression.
+- **CVaR regression is conservative by design:** well below target, with a quarter to a third less
+  leverage than quantile regression.
+- **Limitations:** at 1% short, every method except CVaR liquidates too often (GARCH-t comes closest,
+  at 1.12%); liquidations cluster in time; fees and funding are excluded.
 
 <details>
 <summary>Full results: liquidation rate / average leverage, out of sample</summary>
