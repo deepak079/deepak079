@@ -52,17 +52,51 @@ comparison in place of an interest rate.
 - The result barely depends on what investors expect: any belief about the average between 1.0
   and 1.3 leads to a realised average between 1.059 and 1.070.
 
-`Python` · `PyTorch` · `NumPy/SciPy` · finite differences · PINNs · AMS 516, Stony Brook (team of two)
+`Python` · `PyTorch` · `NumPy/SciPy` · finite differences · PINNs · AMS 516, Stony Brook · joint work with Ander Ibarrondo
 
-## 🛠️ Toolkit
+---
 
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white)
-![pandas](https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white)
-![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?logo=scipy&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)
+### Safe leverage for crypto perpetual futures
 
-## 📫 Contact
+<img src="assets/rate_vs_leverage.png" width="760" alt="Liquidation rate vs average leverage for six forecasting methods, long and short, at 1% and 5% targets">
 
-[LinkedIn](https://www.linkedin.com/in/deepak-s-4351102a1)
+*How much leverage can you take on a crypto perpetual future and still keep the chance of liquidation at 1%?*
+
+Under isolated margin, a position at leverage `L` is liquidated when its worst adverse move in the
+holding window reaches `1/L − mmr` (mmr: maintenance margin rate). So safe leverage follows from a
+forecast of the α-quantile of that move: `L = 1/(mmr + |q̂_α|)`. We compared ways of forecasting it on
+7 Binance perpetuals (about 36,000 8-hour windows, 2022–2026), out of sample over 51 monthly refits.
+
+**What we did**
+- Built a data pipeline from Binance's public archive and a walk-forward harness, and evaluated
+  liquidation rates with Kupiec and Christoffersen tests.
+- Compared six forecasting rules: historical quantile, OLS with normal errors, GARCH(1,1)-t,
+  quantile regression, kernel-weighted quantile and CVaR regression.
+- Fitted quantile regression pooled across coins with coin fixed effects on four market-state
+  factors (funding, open-interest change, realized volatility, basis), using PSG.
+
+**What it shows**
+- Pooled quantile regression met the 1% target for longs (1.00% liquidated, all 7 coins within
+  Kupiec bounds) at **14% more leverage** than the standard historical-quantile rule.
+- A normal tail is too thin: OLS liquidates 2.6–3.3% at a 1% target. GARCH-t buys its leverage
+  with extra liquidations.
+- A nonparametric kernel model did not beat linear quantile regression.
+- CVaR regression is deliberately conservative: well below target, at a quarter to a third less leverage.
+- Limitations: at 1% short every method liquidates too often; liquidations cluster in time; fees and
+  funding are excluded.
+
+<details>
+<summary>Full results: liquidation rate / average leverage, out of sample</summary>
+
+| Method | 1% long | 1% short | 5% long | 5% short |
+|---|---|---|---|---|
+| Historical quantile | 1.23% / 12.8× | 1.27% / 12.9× | 5.01% / 20.7× | 5.16% / 21.2× |
+| OLS, normal errors | 2.60% / 17.8× | 3.30% / 18.9× | 4.81% / 22.1× | 5.75% / 23.4× |
+| GARCH(1,1)-t | 1.38% / 15.3× | 1.12% / 14.5× | 6.11% / 24.8× | 5.75% / 24.1× |
+| **Quantile regression** | **1.00% / 14.5×** | 1.35% / 15.3× | 4.76% / 23.6× | 5.31% / 23.9× |
+| Kernel-weighted quantile | 1.14% / 13.7× | 1.35% / 14.1× | 5.08% / 22.9× | 5.59% / 23.2× |
+| CVaR regression | 0.41% / 10.6× | 0.48% / 11.6× | 1.43% / 16.1× | 1.83% / 17.0× |
+
+</details>
+
+`Python` · `statsmodels` · PSG · quantile regression · GARCH · CVaR · AMS 518, Stony Brook · joint work with Marcus Minutello
