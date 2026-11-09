@@ -2,7 +2,14 @@
   <img src="assets/banner.svg" alt="Deepak Singh: Quantitative Modeling & Research" width="100%">
 </p>
 
-<!-- TODO: one line on your current role or program, e.g. "MS student at … / Quant researcher at …" -->
+I'm a graduate student in Applied Mathematics and Statistics at Stony Brook University, concentrating in
+quantitative finance. Most of my work starts with two questions: what exactly is being optimized or
+estimated, and what assumptions does the answer rest on? From there I build models that can be
+implemented, tested and used to make financial decisions.
+
+My background in software engineering helps me put these ideas into practice, from implementing models
+and numerical solvers to building research pipelines and trading systems. I've applied this combination
+through equity alpha research at SMB Capital and independent quantitative development work.
 
 ## 🧭 Research Interests
 
