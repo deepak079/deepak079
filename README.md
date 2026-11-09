@@ -35,14 +35,14 @@ average investors plan against is the average they produce. It has the same stru
 heterogeneous-agent macro models (Aiyagari; Achdou, Han, Lasry, Lions & Moll), with peer
 comparison in place of an interest rate.
 
-**What I did**
+**What we did**
 - Found that the problem as originally posed let peers have no effect on anyone's choices, and
   redesigned the penalty so individual strategies and the crowd shape each other.
-- Built finite-difference solvers for both equations and the equilibrium search, accurate to one
-  part in a million, as the benchmark.
-- With a teammate, solved the same system with **physics-informed neural networks** (PyTorch):
-  I built the Fokker–Planck network and the equilibrium search. The networks match the benchmark
-  equilibrium to 0.014%.
+- Built finite-difference solvers for both equations and the equilibrium search as the benchmark,
+  with errors of about 10⁻⁶ (checked against the exact no-penalty solution and by grid
+  refinement).
+- Solved the same system with **physics-informed neural networks** (PyTorch), matching the
+  benchmark equilibrium to 0.014%.
 
 **What it shows**
 - Investors near the average cut their risky holdings to about a third of the no-peer level, so
