@@ -29,7 +29,7 @@ I'm currently exploring **neural PDE methods for stochastic control** and **comp
 
 ## 🔬 Recent Work
 
-### Fear of falling behind: a mean-field game of portfolio choice
+### Fear of falling behind: a mean-field game of portfolio choice under peer-shortfall risk
 
 <img src="assets/wealth_dynamics.gif" width="560" alt="Wealth distribution and risky holdings over one year, with and without peer concern">
 
