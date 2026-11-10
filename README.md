@@ -3,9 +3,9 @@
 </p>
 
 I'm a graduate student in Applied Mathematics and Statistics at Stony Brook University, concentrating in
-quantitative finance. I like to formulate problems mathematically, starting from two questions: what
-exactly is being optimized or estimated, and what assumptions does the answer rest on? These questions
-shape which model I choose, how I implement it, and how I test whether it holds up for financial decisions.
+quantitative finance. I like to analyze a model mathematically before I build it: whether its structure
+fits the problem, whether its likelihood or loss targets the right quantity, and what goes wrong when
+either is misspecified. That analysis shapes which model I choose, how I implement it and how I test it.
 
 My background in software engineering helps me put these ideas into practice, from implementing models
 and numerical solvers to building research pipelines and trading systems. I've applied this combination
@@ -14,7 +14,8 @@ through equity alpha research at SMB Capital and independent quantitative develo
 ## 🧭 Research Interests
 
 - **Sequential decision-making and online learning:** stochastic control, reinforcement learning and adaptive
-  control, with a focus on exploration and learning dynamics in these settings.
+  control, with a focus on exploration and learning dynamics: how fast methods converge on real problems
+  and what bounds they come with.
 - **Statistical modeling and inference:** how the estimation target and assumptions about the data-generating
   process guide the choice of models and estimators. I'm interested in robustness to model misspecification
   and finite-sample performance, especially for nonparametric and high-dimensional methods: kernel methods,
