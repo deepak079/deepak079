@@ -51,10 +51,12 @@ comparison in place of an interest rate.
   refinement).
 - Solved the same system with **physics-informed neural networks** (PyTorch), matching the
   benchmark equilibrium to 0.014%.
+- Extended the model to an **N-player Nash equilibrium**, solving PDEs in up to 21 variables with
+  PINNs, where grid methods are infeasible.
 
 **What it shows**
-- Investors near the average cut their risky holdings to about a third of the no-peer level, so
-  wealth piles up just below the average.
+- Fear of falling behind **halves** the average amount invested in the risky asset, and wealth
+  piles up just below the average.
 - The population's average one-year return falls from **11.0% to 6.5%**: competing on relative
   performance costs everyone return.
 - The result barely depends on what investors expect: any belief about the average between 1.0
