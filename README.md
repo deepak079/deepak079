@@ -29,6 +29,8 @@ I'm currently exploring **neural PDE methods for stochastic control** and **comp
 
 ## 🔬 Recent Work
 
+<a id="mean-field-game"></a>
+
 ### Fear of falling behind: a mean-field game of portfolio choice under peer-shortfall risk
 
 <img src="assets/wealth_dynamics.gif" width="560" alt="Wealth distribution and risky holdings over one year, with and without peer concern">
@@ -65,6 +67,8 @@ comparison in place of an interest rate.
 `Python` · `PyTorch` · `NumPy/SciPy` · finite differences · PINNs · AMS 516, Stony Brook · joint work with Ander Ibarrondo
 
 ---
+
+<a id="tail-quantile-leverage"></a>
 
 ### Forecasting tail quantiles: how much leverage is safe on crypto perpetual futures?
 
