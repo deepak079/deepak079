@@ -37,6 +37,8 @@ I'm currently exploring **neural PDE methods for stochastic control** and **comp
 
 *How does a crowd of investors invest when each one fears ending the year below the average?*
 
+**[▶ Interactive slides](https://deepak079.github.io/mean-field-game-neural-pde/presentation/slides.html)** from our class presentation, with live animations (← → to step through).
+
 Each investor chooses how much to put in a risky asset and is penalised for ending below the
 population's average wealth. That average is itself the result of everyone's choices, so the
 problem is a **mean-field game**: an HJB equation for each investor's best strategy, a
