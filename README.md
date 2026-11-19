@@ -97,7 +97,7 @@ up leverage; understate it and positions are liquidated more often than promised
 
 **What it shows**
 - **Modelling the quantile directly wins.** Pooled quantile regression liquidated 1.00% of long
-  positions at a 1% target, with all 7 coins within Kupiec bounds, at **13% more leverage** than the
+  positions at a 1% target, with all 7 coins within Kupiec bounds, at **14% more leverage** than the
   historical-quantile rule (14.5× vs 12.8×).
 - **Distributional models pay for misspecified tails.** Normal tails are too thin: OLS liquidates
   2.6–3.3% at a 1% target. GARCH-t's extra leverage for longs comes with extra liquidations (1.38%).
